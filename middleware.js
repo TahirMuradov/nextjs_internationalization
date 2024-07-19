@@ -7,6 +7,7 @@ import Negotiator from 'negotiator';
 function getLocale(request) {
   const negotiatorHeaders = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
+  negotiatorHeaders['accept-language']='en-US,en;q=0.7,az;q=0.9'
 
   const locales = i18n.locales;  // Locales are treated as regular array
   const languages = new Negotiator({ headers: negotiatorHeaders }).languages(locales);
